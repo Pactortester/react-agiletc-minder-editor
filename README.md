@@ -20,9 +20,13 @@ UI 框架使用 [Ant Design](https://github.com/ant-design/ant-design)
 
 # 集成
 
+1. 进入到前端项目的目录下，执行
+
 ```
   npm install react-agiletc-minder-editor --save
 ```
+2. 替换项目中引用的组件
+
 替换原有的 
 
 ```import AgileTCEditor from 'react-agiletc-editor';```
@@ -31,7 +35,9 @@ UI 框架使用 [Ant Design](https://github.com/ant-design/ant-design)
 
 ```import AgileTCEditor from 'react-agiletc-minder-editor';```
 
-重新编译前端即可，最好是把 server下dist目录先清理掉。
+3. 重新编译前端即可，最好提前把server下dist目录先清理掉。
+
+
 
 
 # API
