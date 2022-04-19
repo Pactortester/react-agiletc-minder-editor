@@ -123,7 +123,7 @@ class Clipboard {
         const item = get(e, 'clipboardData.items[0]', null);
         if (!isNull(item) && item.kind === 'file' && item.type.match(/^image\//i)) {
             const imgFile = item.getAsFile();
-            const imgUrl = await uploadFile(imgFile, this.props.uploadUrl);
+            const imgUrl = await uploadFile(imgFile, this.props.props.uploadUrl);
             editorCommand.handleImage({ url: imgUrl });
         }
     }
@@ -191,7 +191,7 @@ class Clipboard {
         const item = get(clipBoardEvent, 'clipboardData.items[0]', null);
         if (!isNull(item) && item.kind === 'file' && item.type.match(/^image\//i)) {
             const imgFile = item.getAsFile();
-            const imgUrl = await uploadFile(imgFile, this.props.uploadUrl);
+            const imgUrl = await uploadFile(imgFile, this.props.props.uploadUrl);
             let imgInfo = await loadImageSize(imgUrl);
             var _node;
             sNodes.map(node => {

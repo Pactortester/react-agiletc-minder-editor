@@ -73,7 +73,7 @@ class App extends React.Component {
                     this.setState({ loading: false });
                 }
                 if (status === 'done') {
-                    setFieldsValue({ url: info.file.response.data.url });
+                    setFieldsValue({ url: info.file.response.data[0].url });
                 } else if (status === 'error') {
                     notification.error({
                         message: '提示',

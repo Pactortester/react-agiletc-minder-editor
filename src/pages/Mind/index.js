@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Icon, Divider, Menu, Dropdown, Popover, Tooltip, Button, Select, Tag, Tabs } from 'antd';
+import { Icon, Menu, Dropdown, Popover, Tooltip, Button, Select, Tag } from 'antd';
 import './style.less';
 import { partial, isEmpty, isUndefined, isString } from 'lodash';
 import * as editorCommand from '../../command/EditorCommand';
@@ -10,9 +10,8 @@ import ColorPicker from './ColorPicker';
 
 
 const { Option } = Select;
-const { TabPane } = Tabs;
+
 class App extends React.Component {
-    // action作为私有对象传入
     constructor(props) {
         super(props);
         this.state = {
@@ -594,10 +593,10 @@ class App extends React.Component {
 
 
                 <ImageUpload
+                    uploadUrl = {this.props.uploadUrl}
                     nodeInfo={nodeInfo}
                     visible={image}
                     onCancel={this.setImage}
-                    uploadToken={this.props.uploadToken}
                 >
 
 

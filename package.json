@@ -1,6 +1,6 @@
 {
   "name": "react-agiletc-minder-editor",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "react脑图编辑器",
   "main": "dist/bundle.js",
   "scripts": {

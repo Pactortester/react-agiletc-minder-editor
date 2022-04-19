@@ -16,7 +16,7 @@ import { notification } from 'antd'
  * |-- store：dva中对象，使用里面的 dispatch 对象，用于触发路由跳转
  */
 // const { NODE_ENV } = process.env
-window.apiPrefix = '/api'
+// window.apiPrefix = '/api'
 // 设置全局参数，如响应超时时间5min，请求前缀等。
 axios.defaults.timeout = 1000 * 60 * 5
 // axios.defaults.baseURL = window.apiPrefix
@@ -43,7 +43,7 @@ const codeMessage = {
 // 添加一个请求拦截器，用于设置请求过渡状态
 axios.interceptors.request.use(
   config => {
-    config.baseURL = window.apiPrefix
+    // config.baseURL = window.apiPrefix
     return config
   },
   error => {
