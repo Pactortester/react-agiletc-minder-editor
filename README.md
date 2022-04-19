@@ -18,6 +18,22 @@ UI 框架使用 [Ant Design](https://github.com/ant-design/ant-design)
 请配置 `example/app.js` 下的 wsUrl 地址.
 
 
+# 集成
+
+```
+  npm install react-agiletc-minder-editor --save
+```
+替换原有的 
+
+```import AgileTCEditor from 'react-agiletc-editor';```
+
+为
+
+```import AgileTCEditor from 'react-agiletc-minder-editor';```
+
+重新编译前端即可，最好是把 server下dist目录先清理掉。
+
+
 # API
 
 | 属性          | 说明                                                                                         | 类型             | 默认值                         |
@@ -30,3 +46,7 @@ UI 框架使用 [Ant Design](https://github.com/ant-design/ant-design)
 | onSave        | 保存快捷键方法回调,回传脑图全部数据                                                          | Function(object) |                                |
 | type          | 是否为只查看 xmind 数据,type 为 compare 时只读                                               | string           |                                |
 | onResultChange | 用例执行的结果状态有变更时会回调，用于实时更新顶部的执行结果占比的进度条                                              | Function(object)           |                                |
+
+
+# FAQ
+若出现页面的高度问题，即有滚动条的情况，可适当修改下  ```editorStyle``` 属性高度的值
