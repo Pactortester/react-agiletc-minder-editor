@@ -423,7 +423,6 @@ class App extends React.Component {
   }
 
   render() {
-    const { isScore } = this.state;
     const operations =
       <React.Fragment>
         <ShotCutModal>
@@ -506,15 +505,16 @@ class App extends React.Component {
 
 
         {
-          isScore === '4' || this.props.type === 'compare' ? null : <EditUsersRender
-            userName={this.state.userName}
-            editUsers={this.state.editUsers}
-          />
+          // 在线用户的逻辑不一样，暂时先隐藏起来
+          // <EditUsersRender
+          //   userName={this.state.userName}
+          //   editUsers={this.state.editUsers}
+          // />
         }
 
 
         {
-          isScore === '4' ? null : <ToolBoxRender
+          this.props.readOnly ? null : <ToolBoxRender
             type={this.props.type}
             nodeInfo={this.state.nodeInfo}
             handleState={this.handleState}
@@ -534,43 +534,43 @@ class App extends React.Component {
           fullScreen={this.state.fullScreen}
         />
         {
-          isScore === '4' ? null :
-            <Tabs defaultActiveKey={this.props.type === 'compare' ? 'exterior' : 'mind'} size='small' className='editor-tabs' tabBarExtraContent={operations}>
-              {
-                this.props.type === 'compare' ? null :
-                  <Tabs.TabPane tab='思路' key='mind' >
-                    <Mind
-                      {...this}
-                      onRef={this.onMindRef}
-                      userName={this.state.userName}
-                      usedResource={this.state.usedResource}
-                      isNode={this.state.isNode}
-                      nodeInfo={this.state.nodeInfo}
-                      history={window.editor.history}
-                      editable={true}
-                      hasUndo={this.state.hasUndo}
-                      hasRedo={this.state.hasRedo}
-                      tags={this.state.tags}
-                      expand={this.state.expand}
-                      uploadUrl= {this.props.uploadUrl}
-                      readOnly={this.state.readOnly}
-                      handleState={this.handleState}
-                      onResultChange={this.onResultChange}
-                    />
-                  </Tabs.TabPane>
-              }
 
-              <Tabs.TabPane tab='外观' key='exterior'>
-                <Exterior
-                  handleState={this.handleState}
-                  theme={this.state.theme}
-                  template={this.state.template}
-                  expand={this.state.expand}
-                  type={this.props.type}
-                  minderStatus={this.state.minderStatus}
-                />
-              </Tabs.TabPane>
-            </Tabs>
+          <Tabs defaultActiveKey={this.props.type === 'compare' ? 'exterior' : 'mind'} size='small' className='editor-tabs' tabBarExtraContent={operations}>
+            {
+              this.props.type === 'compare' ? null :
+                <Tabs.TabPane tab='思路' key='mind' >
+                  <Mind
+                    {...this}
+                    onRef={this.onMindRef}
+                    userName={this.state.userName}
+                    usedResource={this.state.usedResource}
+                    isNode={this.state.isNode}
+                    nodeInfo={this.state.nodeInfo}
+                    history={window.editor.history}
+                    editable={true}
+                    hasUndo={this.state.hasUndo}
+                    hasRedo={this.state.hasRedo}
+                    tags={this.state.tags}
+                    expand={this.state.expand}
+                    uploadUrl={this.props.uploadUrl}
+                    readOnly={this.state.readOnly}
+                    handleState={this.handleState}
+                    onResultChange={this.onResultChange}
+                  />
+                </Tabs.TabPane>
+            }
+
+            <Tabs.TabPane tab='外观' key='exterior'>
+              <Exterior
+                handleState={this.handleState}
+                theme={this.state.theme}
+                template={this.state.template}
+                expand={this.state.expand}
+                type={this.props.type}
+                minderStatus={this.state.minderStatus}
+              />
+            </Tabs.TabPane>
+          </Tabs>
         }
 
 
