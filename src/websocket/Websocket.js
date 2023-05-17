@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 class Websocket extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class Websocket extends React.Component {
       ws: window.WebSocket
         ? new window.WebSocket(this.props.url, this.props.protocol)
         : new window.MozWebSocket(this.props.url, this.props.protocol),
-      attempts: 1
+      attempts: 1,
     };
     this.sendMessage = this.sendMessage.bind(this);
     this.setupWebsocket = this.setupWebsocket.bind(this);
@@ -31,25 +31,25 @@ class Websocket extends React.Component {
     let websocket = this.state.ws;
 
     websocket.onopen = () => {
-      this.logging('Websocket connected');
-      if (typeof this.props.onOpen === 'function') this.props.onOpen();
+      this.logging("Websocket connected");
+      if (typeof this.props.onOpen === "function") this.props.onOpen();
     };
 
-    websocket.onerror = e => {
-       console.log(e, 'error');
-      if (typeof this.props.onError === 'function') this.props.onError(e);
+    websocket.onerror = (e) => {
+      console.log(e, "error");
+      if (typeof this.props.onError === "function") this.props.onError(e);
     };
 
-    websocket.onmessage = evt => {
+    websocket.onmessage = (evt) => {
       this.props.onMessage(evt.data);
     };
 
     this.shouldReconnect = this.props.reconnect;
-    websocket.onclose = evt => {
+    websocket.onclose = (evt) => {
       this.logging(
         `Websocket disconnected,the reason: ${evt.reason},the code: ${evt.code}`
       );
-      if (typeof this.props.onClose === 'function')
+      if (typeof this.props.onClose === "function")
         this.props.onClose(evt.code, evt.reason);
       if (this.shouldReconnect) {
         let time = this.generateInterval(this.state.attempts);
@@ -58,7 +58,7 @@ class Websocket extends React.Component {
           this.setState({
             ws: window.WebSocket
               ? new window.WebSocket(this.props.url, this.props.protocol)
-              : new window.MozWebSocket(this.props.url, this.props.protocol)
+              : new window.MozWebSocket(this.props.url, this.props.protocol),
           });
           this.setupWebsocket();
         }, time);
@@ -89,7 +89,7 @@ class Websocket extends React.Component {
 
 Websocket.defaultProps = {
   debug: false,
-  reconnect: true
+  reconnect: true,
 };
 
 Websocket.propTypes = {
@@ -101,7 +101,7 @@ Websocket.propTypes = {
   debug: PropTypes.bool,
   reconnect: PropTypes.bool,
   protocol: PropTypes.string,
-  reconnectIntervalInMilliSeconds: PropTypes.number
+  reconnectIntervalInMilliSeconds: PropTypes.number,
 };
 
 export default Websocket;

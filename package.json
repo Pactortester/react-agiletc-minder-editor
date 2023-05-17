@@ -48,6 +48,7 @@
     "kityminder-core": "^1.4.50",
     "lodash": "^4.17.21",
     "marked": "^4.0.0",
+    "prettier": "^2.8.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }

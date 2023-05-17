@@ -1,6 +1,6 @@
-const login = user => {
-    return {
-        type: 'LOGIN',
-        user,
-    };
+const login = (user) => {
+  return {
+    type: "LOGIN",
+    user,
+  };
 };

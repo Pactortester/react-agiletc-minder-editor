@@ -1,17 +1,17 @@
-import { cloneDeep, isEmpty, isUndefined } from 'lodash';
+import { cloneDeep, isEmpty, isUndefined } from "lodash";
 
 /**
  * @desc 获取地址栏的参数
  * @param {string} name 要获取的参数名称
  */
 export function getQueryString(name) {
-    var reg = new RegExp(name + '=([^&]*)', 'i');
-    var r = window.location.href.match(reg);
-    if (r !== null) {
-        return r[1];
-    } else {
-        return null;
-    }
+  var reg = new RegExp(name + "=([^&]*)", "i");
+  var r = window.location.href.match(reg);
+  if (r !== null) {
+    return r[1];
+  } else {
+    return null;
+  }
 }
 
 /**
@@ -19,14 +19,14 @@ export function getQueryString(name) {
  * @param {string} name 要判断的字符串
  */
 export function isJsonString(name) {
-    try {
-        if (typeof JSON.parse(name) == 'object') {
-            return true;
-        }
-        return false;
-    } catch (e) {
-        return false;
+  try {
+    if (typeof JSON.parse(name) == "object") {
+      return true;
     }
+    return false;
+  } catch (e) {
+    return false;
+  }
 }
 
 /**
@@ -34,14 +34,15 @@ export function isJsonString(name) {
  * @param {string} name 要判断的字符串
  */
 export function randomString(len) {
-    len = len || 32;
-    const $chars = 'abcdefghijklmnopqrstuvwxyz123456789';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
-    const maxPos = $chars.length;
-    var pwd = '';
-    for (let i = 0; i < len; i++) {
-        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-    }
-    return pwd;
+  len = len || 32;
+  const $chars =
+    "abcdefghijklmnopqrstuvwxyz123456789"; /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+  const maxPos = $chars.length;
+  var pwd = "";
+  for (let i = 0; i < len; i++) {
+    pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+  }
+  return pwd;
 }
 
 // /**
@@ -74,20 +75,24 @@ export function randomString(len) {
  * @param  {Object} projectInfo [项目信息]
  * @return {[type]}               [description]
  */
-export function parseRouteWithInfo(routes = [], projectInfo = {}, componentInfo = {}) {
-    const projectReg = /:projectId/g;
-    const componentReg = /:componentId/g;
-    const parsedRoute = routes.map(function (item) {
-        const itemCopy = cloneDeep(item);
-        if (projectReg.test(item.path) && !isEmpty(projectInfo)) {
-            itemCopy.breadcrumbName = projectInfo.name;
-        }
-        if (componentReg.test(item.path) && !isUndefined(componentInfo.name)) {
-            itemCopy.breadcrumbName = componentInfo.name;
-        }
-        return itemCopy;
-    });
-    return parsedRoute;
+export function parseRouteWithInfo(
+  routes = [],
+  projectInfo = {},
+  componentInfo = {}
+) {
+  const projectReg = /:projectId/g;
+  const componentReg = /:componentId/g;
+  const parsedRoute = routes.map(function (item) {
+    const itemCopy = cloneDeep(item);
+    if (projectReg.test(item.path) && !isEmpty(projectInfo)) {
+      itemCopy.breadcrumbName = projectInfo.name;
+    }
+    if (componentReg.test(item.path) && !isUndefined(componentInfo.name)) {
+      itemCopy.breadcrumbName = componentInfo.name;
+    }
+    return itemCopy;
+  });
+  return parsedRoute;
 }
 
 /**
@@ -97,21 +102,22 @@ export function parseRouteWithInfo(routes = [], projectInfo = {}, componentInfo 
  * @return {[type]}               [description]
  */
 export function parseRouteForBreadcrumb(routes = []) {
-    // 将url拼接
-    const parsedUrl = routes.map((item, index) => {
-        const newRoute = routes.slice(0, index + 1).map(newItem => {
-            return newItem.url;
-        })
-        return {
-            url: '/' + newRoute.join('/'),
-            breadcrumbName: item.breadcrumbName
-        }
+  // 将url拼接
+  const parsedUrl = routes.map((item, index) => {
+    const newRoute = routes.slice(0, index + 1).map((newItem) => {
+      return newItem.url;
     });
-    // 过滤breadcrumbName为空
-    const parsedRoute = parsedUrl.filter(item => {
-        if (!isEmpty(item.breadcrumbName) && !isUndefined(item.breadcrumbName)) return item;
-    })
-    return parsedRoute;
+    return {
+      url: "/" + newRoute.join("/"),
+      breadcrumbName: item.breadcrumbName,
+    };
+  });
+  // 过滤breadcrumbName为空
+  const parsedRoute = parsedUrl.filter((item) => {
+    if (!isEmpty(item.breadcrumbName) && !isUndefined(item.breadcrumbName))
+      return item;
+  });
+  return parsedRoute;
 }
 
 /**
@@ -119,14 +125,14 @@ export function parseRouteForBreadcrumb(routes = []) {
  * @param  {string}  url        [description]
  */
 export function loadImageSize(url) {
-    return new Promise((resolve, reject) => {
-        var img = document.createElement('img');
-        img.onload = function () {
-            resolve({ width: img.width, height: img.height });
-        };
-        img.onerror = function () {
-            reject(null);
-        };
-        img.src = url;
-    })
+  return new Promise((resolve, reject) => {
+    var img = document.createElement("img");
+    img.onload = function () {
+      resolve({ width: img.width, height: img.height });
+    };
+    img.onerror = function () {
+      reject(null);
+    };
+    img.src = url;
+  });
 }
