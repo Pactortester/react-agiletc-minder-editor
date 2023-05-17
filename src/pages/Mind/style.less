@@ -1,258 +1,256 @@
 .minder-container {
-    display    : flex;
-    align-items: center;
-    flex-wrap  : wrap;
-    height     : 110px;
-    padding    : 5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 110px;
+  padding: 5px;
 
-    .resource-tag.ant-tag-has-color {
-        color: rgba(0, 0, 0, 0.65);
+  .resource-tag.ant-tag-has-color {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .resource-tag.ant-tag-has-color.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .icon-disabled {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .m-icon {
+    cursor: pointer;
+
+    &:hover {
+      background: #dcdcdc;
     }
+  }
 
-    .resource-tag.ant-tag-has-color.disabled {
-        cursor: not-allowed;
-        opacity: 0.5;
-    }
+  .big-icon {
+    height: 60px !important;
+  }
 
-    .icon-disabled {
-        color: rgba(0, 0, 0, 0.3)
-    }
+  .bg-icon {
+    margin-top: 3px;
+  }
 
+  .m-icon-disabled {
+    opacity: 0.5;
+  }
 
-    .m-icon {
-        cursor: pointer;
+  .m-margin {
+    margin-left: 7px;
+  }
 
-        &:hover {
-            background: #DCDCDC;
-        }
-    }
+  .inline {
+    // display: inline-block;
+    border-right: 1px dashed #eee;
+  }
 
-    .big-icon {
-        height: 60px !important
-    }
+  .block {
+    display: block;
+  }
 
-    .bg-icon {
-        margin-top: 3px;
-    }
+  // .km-btn-item {
+  //     display: inline-block;
+  //     background: url(../../../../../../../images/icons.png) no-repeat;
+  //     background-position: 0 20px;
+  //     width: 20px;
+  //     height: 20px;
+  //     padding: 2px;
+  //     margin: 1px;
+  //     vertical-align: middle;
+  // }
 
-    .m-icon-disabled {
-        opacity: 0.5;
-    }
+  .ant-btn.priority-btn[disabled] {
+    opacity: 0.4;
+  }
 
-    .m-margin {
-        margin-left: 7px;
-    }
+  .priority-btn.p1 {
+    background-color: #ff1200;
+    border-bottom: 3px solid #840023;
+  }
 
-    .inline {
-        // display: inline-block;
-        border-right: 1px dashed #eee;
-    }
+  .priority-btn.p2 {
+    background-color: #0074ff;
+    border-bottom: 3px solid #01467f;
+  }
 
-    .block {
-        display: block;
-    }
+  .priority-btn.p3 {
+    background-color: #00af00;
+    border-bottom: 3px solid #006300;
+  }
 
-    // .km-btn-item {
-    //     display: inline-block;
-    //     background: url(../../../../../../../images/icons.png) no-repeat;
-    //     background-position: 0 20px;
-    //     width: 20px;
-    //     height: 20px;
-    //     padding: 2px;
-    //     margin: 1px;
-    //     vertical-align: middle;
-    // }
+  .priority-btn {
+    color: #fff !important;
+    border-radius: 8px;
+    padding: 0px 2px;
+    margin-left: 2px;
+    font-style: italic;
+    font-size: 12px;
+    height: 22px;
+    margin-left: 4px;
+  }
 
-    .ant-btn.priority-btn[disabled] {
-        opacity: 0.4;
-    }
+  .km-priority-item {
+    display: inline-block;
+    background: url(../../assets/images/iconpriority.png) no-repeat;
+    background-position: 0 20px;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin: 1px;
+    vertical-align: middle;
+  }
 
-    .priority-btn.p1 {
-        background-color: #ff1200;
-        border-bottom   : 3px solid #840023;
-    }
+  .km-priority-item2 {
+    display: inline-block;
+    background: url(../../assets/images/iconpriority2.png) no-repeat;
+    background-position: 0 20px;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin: 1px;
+    vertical-align: middle;
+  }
 
-    .priority-btn.p2 {
-        background-color: #0074ff;
-        border-bottom   : 3px solid #01467f;
-    }
+  // .km-progress-item {
+  //     display: inline-block;
+  //     background: url(../../../../../../../images/iconprogress.png) no-repeat;
+  //     background-position: 0 20px;
+  //     width: 20px;
+  //     height: 20px;
+  //     padding: 2px;
+  //     margin: 1px;
+  //     vertical-align: middle;
+  // }
+  .m-append {
+    width: 165px;
+  }
 
-    .priority-btn.p3 {
-        background-color: #00af00;
-        border-bottom   : 3px solid #006300;
-    }
+  .append-child-node {
+    background-position: 0 0;
+  }
 
-    .priority-btn {
-        color: #fff !important;
-        border-radius: 8px;
-        padding      : 0px 2px;
-        margin-left  : 2px;
-        font-style   : italic;
-        font-size    : 12px;
-        height       : 22px;
-        margin-left  : 4px;
-    }
+  .append-sibling-node {
+    background-position: 0 -20px;
+  }
 
+  .append-parent-node {
+    background-position: 0 -40px;
+  }
 
-    .km-priority-item {
-        display            : inline-block;
-        background         : url(../../assets/images/iconpriority.png) no-repeat;
-        background-position: 0 20px;
-        width              : 20px;
-        height             : 20px;
-        padding            : 2px;
-        margin             : 1px;
-        vertical-align     : middle;
-    }
+  .up {
+    background-position: 0 -280px;
+  }
 
-    .km-priority-item2 {
-        display            : inline-block;
-        background         : url(../../assets/images/iconpriority2.png) no-repeat;
-        background-position: 0 20px;
-        width              : 20px;
-        height             : 20px;
-        padding            : 2px;
-        margin             : 1px;
-        vertical-align     : middle;
-    }
+  .down {
+    background-position: 0 -300px;
+  }
 
-    // .km-progress-item {
-    //     display: inline-block;
-    //     background: url(../../../../../../../images/iconprogress.png) no-repeat;
-    //     background-position: 0 20px;
-    //     width: 20px;
-    //     height: 20px;
-    //     padding: 2px;
-    //     margin: 1px;
-    //     vertical-align: middle;
-    // }
-    .m-append {
-        width: 165px;
-    }
+  .undo {
+    background-position: 0 -1240px;
+  }
 
-    .append-child-node {
-        background-position: 0 0;
-    }
+  .redo {
+    background-position: 0 -1220px;
+  }
 
-    .append-sibling-node {
-        background-position: 0 -20px;
-    }
+  .m-priority {
+    width: 120px;
+  }
 
-    .append-parent-node {
-        background-position: 0 -40px;
-    }
+  .m-progress {
+    width: 120px;
+  }
 
-    .up {
-        background-position: 0 -280px;
-    }
+  .priority-icon {
+    margin: 0 2px;
+    padding: 1px;
+  }
 
-    .down {
-        background-position: 0 -300px;
-    }
+  .progress-icon {
+    margin: 0 2px;
+    padding: 1px;
+  }
 
-    .undo {
-        background-position: 0 -1240px;
-    }
+  .priority-0 {
+    background-position: 0 -180px;
+  }
 
-    .redo {
-        background-position: 0 -1220px;
-    }
+  .priority-1 {
+    background-position: 0 0px;
+  }
 
-    .m-priority {
-        width: 120px;
-    }
+  .priority-2 {
+    background-position: 0 -20px;
+  }
 
-    .m-progress {
-        width: 120px;
-    }
+  .priority-3 {
+    background-position: 0 -40px;
+  }
 
-    .priority-icon {
-        margin : 0 2px;
-        padding: 1px;
-    }
+  .priority-4 {
+    background-position: 0 -60px;
+  }
 
-    .progress-icon {
-        margin : 0 2px;
-        padding: 1px;
-    }
+  .priority-5 {
+    background-position: 0 -80px;
+  }
 
-    .priority-0 {
-        background-position: 0 -180px;
-    }
+  .priority-6 {
+    background-position: 0 -100px;
+  }
 
-    .priority-1 {
-        background-position: 0 0px;
-    }
+  .priority-7 {
+    background-position: 0 -120px;
+  }
 
-    .priority-2 {
-        background-position: 0 -20px;
-    }
+  .priority-8 {
+    background-position: 0 -140px;
+  }
 
-    .priority-3 {
-        background-position: 0 -40px;
-    }
+  .priority-9 {
+    background-position: 0 -160px;
+  }
 
-    .priority-4 {
-        background-position: 0 -60px;
-    }
+  .progress-0 {
+    background-position: 0 -180px;
+  }
 
-    .priority-5 {
-        background-position: 0 -80px;
-    }
+  .progress-1 {
+    background-position: 0 0px;
+  }
 
-    .priority-6 {
-        background-position: 0 -100px;
-    }
+  .progress-2 {
+    background-position: 0 -20px;
+  }
 
-    .priority-7 {
-        background-position: 0 -120px;
-    }
+  .progress-3 {
+    background-position: 0 -40px;
+  }
 
-    .priority-8 {
-        background-position: 0 -140px;
-    }
+  .progress-4 {
+    background-position: 0 -60px;
+  }
 
-    .priority-9 {
-        background-position: 0 -160px;
-    }
+  .progress-5 {
+    background-position: 0 -80px;
+  }
 
-    .progress-0 {
-        background-position: 0 -180px;
-    }
+  .progress-6 {
+    background-position: 0 -100px;
+  }
 
-    .progress-1 {
-        background-position: 0 0px;
-    }
+  .progress-7 {
+    background-position: 0 -120px;
+  }
 
-    .progress-2 {
-        background-position: 0 -20px;
-    }
+  .progress-8 {
+    background-position: 0 -140px;
+  }
 
-    .progress-3 {
-        background-position: 0 -40px;
-    }
-
-    .progress-4 {
-        background-position: 0 -60px;
-    }
-
-    .progress-5 {
-        background-position: 0 -80px;
-    }
-
-    .progress-6 {
-        background-position: 0 -100px;
-    }
-
-    .progress-7 {
-        background-position: 0 -120px;
-    }
-
-    .progress-8 {
-        background-position: 0 -140px;
-    }
-
-    .progress-9 {
-        background-position: 0 -160px;
-    }
+  .progress-9 {
+    background-position: 0 -160px;
+  }
 }
